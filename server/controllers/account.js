@@ -6,17 +6,15 @@ const User = mongoose.model('User');
 
 const createAccount = (req, res) => {
   const id = guid.raw();
-  const role = 1; // default role is non-admin
   const userInfo = {
     username: req.body.username,
     id,
-    role,
   }
   User.register(new User(userInfo), req.body.password, (error, user) => {
     if (error) {
       return sendJSONResponse(400, { message: 'Unable to create user', error })(req, res);
     }
-    const token = auth.generateToken({ id, role });
+    const token = auth.generateToken({ id });
     return sendJSONResponse(200, { status: 'success', user, token })(req, res);
   });
 }
@@ -24,7 +22,7 @@ const createAccount = (req, res) => {
 const login = (req, res) => {
   User.findOne({ username: req.body.username }, function(error, user) {
     if (error) { return sendJSONResponse(400, { status: 'failure', error })(req, res); }
-    const token = auth.generateToken({ id: user.id, role: user.role });
+    const token = auth.generateToken({ id: user.id });
     return sendJSONResponse(200, { status: 'success', user, token })(req, res);
   });
 };
@@ -32,7 +30,7 @@ const login = (req, res) => {
 const getAccount = (req, res) => {
   User.findOne({ id: req.user.id }, function(error, user) {
     if (error) { return sendJSONResponse(400, { status: 'failure', error })(req, res); }
-    const token = auth.generateToken({ id: user.id, role: user.role });
+    const token = auth.generateToken({ id: user.id });
     return sendJSONResponse(200, { status: 'success', user, token })(req, res);
   });
 }
@@ -61,10 +59,8 @@ const getAllAccounts = (req, res) => {
 };
 
 const editAccount = (req, res) => {
-  if (req.user.role < 2) {
-    if (req.user.id !== req.params.accountId) {
-      return notAuthorized(req, res);
-    }
+  if (req.user.id !== req.params.accountId) {
+    return notAuthorized(req, res);
   }
   if (req.body.password) {
     User.findOne({ id: req.params.accountId }, (error, user) => {
