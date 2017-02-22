@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
-
+import { compose } from 'redux';
 import { connect } from 'react-redux';
+import { DragDropContext } from 'react-dnd';
+import HTML5Backend from 'react-dnd-html5-backend';
 import selectN from 'selectn';
 import { requestAllArticles } from '../actions';
 import Auth from './Auth';
@@ -13,7 +15,7 @@ class Home extends Component {
   }
 
   render() {
-    return(
+    return (
       <div>
         {!this.props.loggedIn && <Auth />}
         {this.props.feed.map(source => (
@@ -25,7 +27,10 @@ class Home extends Component {
 
 }
 
-export default connect(({ feed, auth }) => ({
-  feed,
-  loggedIn: !!(selectN('user.username', auth)),
- }), { requestAllArticles })(Home);
+export default compose (
+  DragDropContext(HTML5Backend),
+  connect(({ feed, auth }) => ({
+    feed,
+    loggedIn: !!(selectN('user.username', auth)),
+  }), { requestAllArticles })
+)(Home);
