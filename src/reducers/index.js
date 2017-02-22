@@ -1,4 +1,6 @@
 import { combineReducers } from 'redux';
+import { reducer as form } from 'redux-form';
+import auth from './auth';
 
 import { feed as feedData } from '../data';
 import { TOGGLE_EXPANDED, TOGGLE_MORE, TOGGLE_THEME } from '../actions';
@@ -65,4 +67,9 @@ const theme = (state = 'light', { type }) => {
   return state;
 }
 
-export default combineReducers({ feed, theme });
+export default combineReducers({
+  auth,
+  feed,
+  theme,
+  form,
+});

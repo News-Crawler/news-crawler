@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 
 import { connect } from 'react-redux';
-
+import selectN from 'selectn';
 import { requestAllArticles } from '../actions';
-
+import Auth from './Auth';
 import NewsSource from './NewsSource';
 
 class Home extends Component {
@@ -15,6 +15,7 @@ class Home extends Component {
   render() {
     return(
       <div>
+        {!this.props.loggedIn && <Auth />}
         {this.props.feed.map(source => (
           <NewsSource {...source} key={source.id} />
         ))}
@@ -24,4 +25,7 @@ class Home extends Component {
 
 }
 
-export default connect(({ feed }) => ({ feed }), { requestAllArticles })(Home);
+export default connect(({ feed, auth }) => ({
+  feed,
+  loggedIn: !!(selectN('user.username', auth)),
+ }), { requestAllArticles })(Home);

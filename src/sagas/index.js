@@ -1,6 +1,7 @@
 import { takeEvery, takeLatest } from 'redux-saga'
 import { call, put, select } from 'redux-saga/effects'
 import { getArticles as getArticlesRequest } from '../api';
+import { registerSaga, loginSaga } from './auth';
 
 export const GET_ARTICLES = 'GET_ARTICLES';
 export const GET_ARTICLES_REQUESTED = 'GET_ARTICLES_REQUESTED';
@@ -32,6 +33,8 @@ function* getAllArticlesSaga() {
 export default function* rootSaga() {
   yield [
     getArticlesSaga(),
-    getAllArticlesSaga()
+    getAllArticlesSaga(),
+    registerSaga(),
+    loginSaga(),
   ]
 }
