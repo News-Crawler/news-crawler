@@ -18,8 +18,8 @@ class Home extends Component {
     return (
       <div>
         {!this.props.loggedIn && <Auth />}
-        {this.props.feed.map(source => (
-          <NewsSource {...source} key={source.id} />
+        {this.props.feed.map((source, index) => (
+          <NewsSource {...source} key={source.id} index={index} reOrderSource={(dragIndex, hoverIndex) => console.warn(`dragIndex: ${dragIndex}, hoverIndex: ${hoverIndex}`)} />
         ))}
       </div>
     );
