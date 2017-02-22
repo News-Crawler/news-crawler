@@ -1,0 +1,213 @@
+body {
+  font-family: -apple-system, BlinkMacSystemFont, Roboto, Helvetica, Arial, sans-serif;
+}
+
+.h1, .h2, .h3, .h4, .h5, .h6, h1, h2, h3, h4, h5, h6 {
+  font-weight: 400;
+}
+.form-wrapper h4 {
+  margin-top: 0;
+  margin-bottom: 0.5em;
+}
+h3 {
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+  font-size: 1.5em;
+}
+a:hover {
+  text-decoration: none;
+}
+.content-container {
+  margin-top: 92px;
+}
+header, footer {
+  color: #ECF0F1;
+}
+.navbar-default .navbar-toggle:hover, .navbar-default .navbar-toggle:focus  {
+  background: transparent;
+}
+.navbar {
+  background: #2C3E50;
+}
+.navbar .navbar-brand, .navbar .navbar-brand:focus, .navbar .navbar-nav li a, .navbar a {
+  color: #ECF0F1;
+  outline: none;
+}
+.navbar .navbar-toggle .icon-bar {
+  background-color: #ECF0F1;
+}
+.navbar .navbar-brand, .navbar li>a {
+  text-shadow: none;
+}
+.navbar .navbar-brand {
+  font-size: 2em;
+}
+.navbar .navbar-brand:hover, .navbar .navbar-nav li a:hover,
+.navbar .navbar-nav > .active > a, .navbar .navbar-nav > li > a:focus {
+  background: #2C3E50;
+  color: #CCC;
+  outline: none;
+}
+.navbar-fixed-top {
+  border: none;
+}
+.site-title {
+  background: #2C3E50;
+}
+.page-title {
+  background: #2980B9;
+  position: fixed;
+  top: 50px;
+  left: 0;
+  width: 100%;
+  margin: 0;
+  z-index: 100;
+}
+.page-title h2 {
+  margin-top: 10px;
+  font-size: 1.5em;
+  color: #FFF;
+}
+.page-title h2 .refresh-button {
+  margin-top: 0.2em;
+  font-size: 0.75em;
+}
+.page-title h2 small {
+  color: #FFF;
+}
+.site-title h1, .site-title p {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  line-height: 1em;
+}
+.alert.alert-top {
+  margin-top: 1em;
+}
+.clickable {
+  cursor: pointer;
+}
+.icon {
+  font-weight: 400;
+  padding-top: 0.125em;
+  font-size: 0.75em;
+}
+.category-title {
+  background: #EFEFEF;
+}
+.source-title {
+  background: #ECF0F1;
+}
+.article-list article {
+  border-bottom: 1px solid #ECF0F1;
+}
+.article-list h4 small {
+  white-space: nowrap;
+}
+.news-source.right-source {
+  padding-right: 0.5em;
+  padding-left: 0.25em;
+}
+.news-source:last-child {
+  margin-bottom: 0.5em;
+}
+.news-source {
+  position: relative;
+  padding: 0.5em 0.25em 0 0.5em;
+  float: left;
+}
+.news-source img {
+  width: 100%;
+  border: 1px solid #2C3E50;
+  border-radius: 3px;
+  margin: 0;
+  padding: 0;
+  position: relative;
+}
+.news-source img:hover {
+  cursor: pointer;
+}
+.news-source .checked-image {
+  border-color: #3498DB;
+}
+.news-source input[type="checkbox"] {
+  display: none;
+}
+.news-source i {
+  position: absolute;
+  bottom: 0.25em;
+  right: 0.5em;
+  font-size: 1.5em;
+  color: #777;
+}
+.news-source i.fa-check-circle-o {
+  color: #3498DB;
+}
+.right-source i {
+  right: 0.6em;
+}
+.form-wrapper {
+  margin-top: 1.5em;
+}
+.submit-form {
+  margin-top: 0.75em;
+}
+.main {
+  margin-bottom: 50px;
+}
+.main .lead:first-child {
+  margin-top: 1em;
+}
+.row-buffer {
+  margin-top: 2em;
+}
+.hypnotized {
+  width: 100%;
+}
+footer.row {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  height: $footer-height;
+  width: 100%;
+  margin: 0;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  background: #2980B9;
+}
+.overlay-outer {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 98;
+}
+.overlay-inner {
+  width: 300px;
+  height: 230px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-left: -150px;
+  margin-top: -115px;
+  background: white;
+  padding: 0 20px;
+  border-radius: 5px;
+}
+.overlay-inner .fa-times-circle {
+  position: absolute;
+  top: 0;
+  right: 0;
+  font-size: 30px;
+  margin-top: -15px;
+  margin-right: -10px;
+  color: black;
+  cursor: pointer;
+}
+@media (min-width: 768px) {
+  .news-source, .news-source.right-source {
+    padding-right: 0.5em;
+    padding-left: 0.25em;
+  }
+}

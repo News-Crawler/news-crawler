@@ -1,0 +1,26 @@
+.dark {
+  background: black;
+  color: white;
+}
+.dark .navbar, .dark .navbar-brand:hover, .dark .navbar-nav li a:hover,
+.dark .navbar-nav > .active > a, .dark .navbar-nav > li > a:focus {
+  background: black;
+}
+.dark .source-title {
+  background: #2C3E50;
+}
+.dark a {
+  color: #CCC;
+}
+.dark a:hover {
+  color: #AAA;
+}
+.dark .article-list article {
+  border-color: #333;
+}
+.dark .page-title {
+  background: #222;
+}
+.dark .jumbotron {
+  background: black;
+}
