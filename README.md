@@ -33,3 +33,14 @@ Crawl the news
  - API calls will proxy to `localhost:5005`
  - Bootstrapped with [create-react-app](https://github.com/facebookincubator/create-react-app/blob/master/packages/react-scripts/template/README.md)
  - Run tests: `npm run test`
+
+## Build and run in a Docker container
+
+ - `cd` to the top level of this repo's directory (where this file is)
+ - Run `docker build -t news/news-scraper .`  (Don't miss the `.` - that tells it where to build). This will take a minute
+ - Run `docker run -p 49160:5005 -d news/news-scraper`
+  - `-p` binds port 5005 of the app _in_ the container to port 49160 of the host machine
+  - `-d` "detaches" - runs the container in the background
+ - Run `docker ps` to see Container info
+ - Open [localhost:49160](http://localhost:49160) to view the app running in the Docker container, in the browser.
+ 
